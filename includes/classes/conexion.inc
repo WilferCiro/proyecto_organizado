@@ -3,7 +3,7 @@
 class base_datos{
 	static private $conexion=NULL;
 	public function __construct(){
-		$this->conexion = new mysqli("localhost","root","","localhost");
+		$this->conexion = new mysqli("localhost","root","","ingelect_tgrado");
 
 		if(mysqli_connect_error()) {
 			trigger_error("Failed to conencto to MySQL: " . mysql_connect_error(),E_USER_ERROR);
@@ -22,8 +22,17 @@ class base_datos{
 		return true;
 	}
 	
-	public function retorna_tabla($sql){
+	public function retorna_consulta($sql){
 		$operacion=$this->conexion->query($sql); 
+		$rows = array();
+		while($row = $operacion->fetch_array(MYSQLI_ASSOC)) {
+		    $rows[] = $row;
+		}
+		return $rows;		
+	}
+	
+	public function retorna_tabla($args,$tabla,$complementos){
+		$operacion=$this->conexion->query("select $args from $tabla $complementos"); 
 		$rows = array();
 		while($row = $operacion->fetch_array(MYSQLI_ASSOC)) {
 		    $rows[] = $row;

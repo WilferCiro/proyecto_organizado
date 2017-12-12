@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-11-05 20:29:47
+/* Smarty version 3.1.30, created on 2017-12-11 22:07:02
   from "/opt/lampp/htdocs/www/grado_ordenado/includes/docs_smarty/cabecera.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59ff66abc67a80_93944089',
+  'unifunc' => 'content_5a2ef376cc2180_48621656',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f0261219342cc2ee3b46da5b9c02cc28c1d81d2' => 
     array (
       0 => '/opt/lampp/htdocs/www/grado_ordenado/includes/docs_smarty/cabecera.tpl',
-      1 => 1509905971,
+      1 => 1513026421,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59ff66abc67a80_93944089 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a2ef376cc2180_48621656 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="es">

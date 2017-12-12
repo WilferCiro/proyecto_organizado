@@ -1,56 +1,33 @@
 {include file="includes/docs_smarty/cabecera.tpl"}
 
-{if $operacion==ver_acta_reunion}
-	<h2>Actas de reuniones</h2>
-	<hr />
-	<a href='index.php?operacion=agregar_acta_reunion' class='btn btn-success agregar_nueva'>
-		<span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
-		 Agregar Nuevo
-	</a>
-	<hr />
-	{if isset($smarty.get.ingresados)}
-		<div class='alert alert-primary' role='alert'>
-			Se ha ingresado correctamente
+
+<h2>Actas de reuniones</h2>
+<hr />
+
+<form name="reporte_reunion" method="post" target='_blank' id="form_tgrado" action='informes.php' enctype="multipart/form-data" role="form" class="form-horizontal">
+
+	<div class="form-group"></div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="fecha_aprobado">Acta Nro.</label>
+		<div class="col-sm-2">
+			<input name="acta_nro" value="" class="form-control campo_inactivo" required="true" type="text">
 		</div>
-	{/if}
-	<table class='table table-responsive table-striped table-hover' id='tabla_paginacion'>
-		<thead>
-			<tr>
-				<th>Acta Nro.</th>
-				<th>Fecha reunión</th>
-				<th>Observaciones</th>
-			</tr>
-		</thead>
-		<tbody>
-			{foreach from=$lista_actas item=row}
-				<tr>
-					<td>{$row.acta_id}</td>
-					<td>{date("Y-m-d",$row.fecha)}</td>
-					<td>{$row.observaciones}</td>
-				</tr>
-			{/foreach}
-		</tbody>
-	</table>
-{elseif $operacion==agregar_acta_reunion}
-	<h2>Agregar acta de reunión</h2>
-	<hr />
-	<form action='operaciones.php' method='post' id='configuracion'>
-		
-		<div class='form-group'>
-			<label for='fecha_reunion'>Fecha Reunión</label>
-			{html_select_date}
-		</div>
-		
-		<div class='form-group'>
-			<label for='observaciones'>Observaciones</label>		
-			<textarea id='nicEdit' name='observaciones' style='width:1000px;height:80px;'></textarea>
-		</div>
-		<input type='hidden' name='configuracion_id' value='$nt[configuracion_id]'>
-		<button type='submit' name='guardar_acta_reunion' class='btn btn-primary'>Guardar datos</button>
-		<a  class='btn btn-danger' href='index.php?operacion=ver_acta_reunion'>Cancelar</a>
-	</form>
-{elseif $operacion==error}
-	Error
-{/if}
+		<label class="col-sm-6 text-danger"></label>
+	</div>
+
+
+	<div class="form-group"></div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="fecha_aprobado">Fecha del reporte (Desde)</label>
+		<div class="col-sm-2">{html_select_date class='form-control campo_inactivo' prefix='StartDate' time=$anio start_year='-5' end_year='+1' display_days=false display_months=false}</div>
+		<div class="col-sm-2">{html_select_date class='form-control campo_inactivo' prefix='StartDate' display_years=false display_days=false}</div>
+		<div class="col-sm-2">{html_select_date class='form-control campo_inactivo' prefix='StartDate' display_years=false display_months=false}</div>
+		<label class="col-sm-6 text-danger"></label>
+	</div>
+
+	
+	<button type="submit" name="ReporteReunion" class="btn btn-primary">Extraer Reporte</button>
+</form>
+
 
 {include file="includes/docs_smarty/piedepagina.tpl"}
