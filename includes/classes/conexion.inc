@@ -3,7 +3,7 @@
 class base_datos{
 	static private $conexion=NULL;
 	public function __construct(){
-		$this->conexion = new mysqli("localhost","root","","ingelect_tgrado");
+		$this->conexion = new mysqli("localhost","root","","tgrado");
 
 		if(mysqli_connect_error()) {
 			trigger_error("Failed to conencto to MySQL: " . mysql_connect_error(),E_USER_ERROR);
@@ -23,16 +23,13 @@ class base_datos{
 	}
 	
 	public function retorna_consulta($sql){
-		$operacion=$this->conexion->query($sql); 
-		$rows = array();
-		while($row = $operacion->fetch_array(MYSQLI_ASSOC)) {
-		    $rows[] = $row;
-		}
+		$operacion=$this->conexion->query($sql) or die ($this->conexion->error);
+		$rows = $operacion->fetch_array(MYSQLI_ASSOC);
 		return $rows;		
 	}
 	
-	public function retorna_tabla($args,$tabla,$complementos){
-		$operacion=$this->conexion->query("select $args from $tabla $complementos"); 
+	public function retorna_tabla($sql){
+		$operacion=$this->conexion->query($sql) or die ($this->conexion->error); 
 		$rows = array();
 		while($row = $operacion->fetch_array(MYSQLI_ASSOC)) {
 		    $rows[] = $row;
@@ -41,7 +38,7 @@ class base_datos{
 	}
 	
 	public function retorna_campo_individual($tabla,$adicional,$campo){
-		$operacion=$this->conexion->query("select $campo from $tabla $adicional LIMIT 1");
+		$operacion=$this->conexion->query("select $campo from $tabla $adicional LIMIT 1") or die ($this->conexion->error);
 		
 		if ($row = $operacion->fetch_assoc()) {
 			return $row[$campo];

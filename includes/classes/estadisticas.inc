@@ -8,7 +8,7 @@ class estadisticas{
 	
 	public function get_categorias_trabajos_grado(){
 		$data_grafica="";
-		$estados=$this->conexion->retorna_tabla("estado_id,detalle","estado_tgrado","");
+		$estados=$this->conexion->retorna_tabla("select estado_id,detalle from estado_tgrado");
 		foreach($estados as $es){
 			$cantidad=$this->conexion->realiza_consulta("select tgrado_id from tgrado where estado_id='$es[estado_id]'");
 			$data_grafica.="{
@@ -24,7 +24,7 @@ class estadisticas{
 	
 	public function get_modalidades(){
 		$data_grafica="";
-		$estados=$this->conexion->retorna_tabla("modalidad_id,detalle","modalidades","");
+		$estados=$this->conexion->retorna_tabla("select modalidad_id,detalle from modalidades");
 		foreach($estados as $es){
 			$cantidad=$this->conexion->realiza_consulta("select tgrado_id from tgrado where modalidad_id='$es[modalidad_id]'");
 			$data_grafica.="{

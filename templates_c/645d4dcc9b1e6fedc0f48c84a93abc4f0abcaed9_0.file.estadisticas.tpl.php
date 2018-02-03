@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-12-12 17:28:35
-  from "/opt/lampp/htdocs/www/grado_ordenado/includes/docs_smarty/estadisticas.tpl" */
+/* Smarty version 3.1.30, created on 2018-02-03 23:32:48
+  from "/opt/lampp/htdocs/www/grado_ordenado/proyecto_organizado/includes/docs_smarty/estadisticas.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a3003b3c3e494_12554865',
+  'unifunc' => 'content_5a7638903fb419_87596551',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'e7986dd61719692ed7755cc8c5c446dbf1ac8978' => 
+    '645d4dcc9b1e6fedc0f48c84a93abc4f0abcaed9' => 
     array (
-      0 => '/opt/lampp/htdocs/www/grado_ordenado/includes/docs_smarty/estadisticas.tpl',
-      1 => 1513096114,
+      0 => '/opt/lampp/htdocs/www/grado_ordenado/proyecto_organizado/includes/docs_smarty/estadisticas.tpl',
+      1 => 1517697037,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:includes/docs_smarty/piedepagina.tpl' => 1,
   ),
 ),false)) {
-function content_5a3003b3c3e494_12554865 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a7638903fb419_87596551 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:includes/docs_smarty/cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
